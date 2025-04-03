@@ -1,16 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const ContactSection = styled.section`
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   text-align: center;
 `;
 
-const IconLink = styled.a`
+const ContactTitle = styled.h2`
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: ${props => props.theme.colors.primary};
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+`;
+
+const IconLink = styled(motion.a)`
   color: ${props => props.theme.colors.text};
-  font-size: 2rem;
-  margin: 0 1rem;
+  font-size: 2.5rem;
+  transition: color 0.3s ease;
   &:hover {
     color: ${props => props.theme.colors.primary};
   }
@@ -19,15 +32,36 @@ const IconLink = styled.a`
 const Contact = () => {
   return (
     <ContactSection id="contact">
-      <h2>Contato</h2>
-      <div>
-        <IconLink href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer">
+      <ContactTitle>Entre em Contato</ContactTitle>
+      <SocialLinks>
+        <IconLink
+          href="https://github.com/Freitassync"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <FaGithub />
         </IconLink>
-        <IconLink href="https://linkedin.com/in/seu-usuario" target="_blank" rel="noopener noreferrer">
+        <IconLink
+          href="https://www.linkedin.com/in/gabriel-da-silva-freitas/"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <FaLinkedin />
         </IconLink>
-      </div>
+        <IconLink
+          href="https://www.instagram.com/freitasbtw_/"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <FaInstagram />
+        </IconLink>
+      </SocialLinks>
     </ContactSection>
   );
 };
